@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Demo_WorkFlow.WorkFlow
 {
-    public class WorkFlowBuilder<DataStorage> where DataStorage : class
+    public class FlowRunner<DataStorage> where DataStorage : class
     {
        
 
@@ -29,7 +29,7 @@ namespace Demo_WorkFlow.WorkFlow
         private readonly IDistributedCache _distributedCache;
         private DataStorage ExtraData;
 
-        public WorkFlowBuilder(FlowBuilder _flows, IDistributedCache distributedCache)
+        public FlowRunner(FlowBuilder _flows, IDistributedCache distributedCache)
         {
             _distributedCache = distributedCache;
             flows = _flows;
@@ -38,7 +38,7 @@ namespace Demo_WorkFlow.WorkFlow
             Build();
         }
 
-        public WorkFlowBuilder(string _flowId, FlowBuilder _flows, IDistributedCache distributedCache)
+        public FlowRunner(string _flowId, FlowBuilder _flows, IDistributedCache distributedCache)
         {
             _distributedCache = distributedCache;
             flows = _flows;
